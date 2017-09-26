@@ -1,0 +1,4 @@
+<md-select [(ngModel)]="countryCode" id="{{this.id +''+ this.index}}" name="Country" (ngModelChange)="valueChange();" [mandatory]="isMandatory"
+    [disabled]="disabled"  placeholder="Country" [mandatory]="isMandatory" > 
+    <md-option *ngFor="let country of CountryList |  Sort:'name'" [value]="country.code">{{ country.name }}</md-option>
+</md-select>

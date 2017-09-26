@@ -1,0 +1,4 @@
+<md-select [(ngModel)]="stateCode" id="{{this.id +''+ this.index}}" name="State" (ngModelChange)="valueChange();" [mandatory]="isMandatory"
+    [disabled]="disabled" placeholder="State" [mandatory]="isMandatory">
+    <md-option *ngFor="let state of StateList |  Sort:'name'" [value]="state.code">{{ state.name }}</md-option>
+</md-select>

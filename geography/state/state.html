@@ -1,0 +1,41 @@
+<form #form="ngForm" class="form form-horizontal padding">
+    <div class="col-xs-12 pagescroll widgetsplit tpadd0">
+        <input type="hidden" [(ngModel)]="model.id" class="form-control" id="id" name="id">
+        <div class="col-xs-12 no-padding display-flex">
+            <div class="col-xs-6 no-padding splitters no-border">
+                <div class="col-xs-12 tpadd25">
+                    <div class="form-group">
+                        <div class="col-xs-12 col-sm-6 col-md-4 gutter-padd">
+                            <genie-input placeholder="State Code" [(ngModel)]="model.state.code" id="configCode" UpperCase primarykey displayName="State Code"
+                                name="Code" [mandatory]="true" [disabled]="model.id" tabIndex="1">
+                            </genie-input>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-4 no-padding-left gutter-padd">
+                            <genie-input [(ngModel)]="model.statename" placeholder="Name" id="configValue" displayName="State Name" name="Name" [mandatory]="true"
+                                tabIndex="2">
+                            </genie-input>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 no-padding-left gutter-padd">
+                            <countrylist [(ngModel)]="model.country.code" name="Country" index="0" (ngModelChange)="setCountrycode($event)" tabIndex="1"
+                                mandatory="true" [isMandatory]="'true'">
+                            </countrylist>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 col-md-8">
+                            <genie-input [(ngModel)]="model.othersystemcode" placeholder="Other System Code" id="configDesc" displayName="Other System Code"
+                                name="Description" tabIndex="3" [mandatory]="true">
+                            </genie-input>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 no-padding-left">
+                            <label for="active">{{ (model.active == true) ? 'Active' : 'InActive' }}</label>
+                            <span><md-slide-toggle id="active" [(ngModel)]="model.active" id="configActive" name="active"></md-slide-toggle></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    </div>
+</form>

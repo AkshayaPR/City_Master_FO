@@ -1,0 +1,62 @@
+<form #form="ngForm" class="form form-horizontal padding">
+    <div class="col-xs-12 pagescroll widgetsplit tpadd0">
+        <input type="hidden" [(ngModel)]="model.id" class="form-control" id="id" name="id">
+        <div class="col-xs-12 no-padding display-flex">
+            <div class="col-xs-6 no-padding splitters no-border">
+                <div class="col-xs-12 tpadd25">
+
+                    <div class="col-xs-12 col-sm-6 col-md-4 no-padding-left gutter-padd">
+                        <countrylist [(ngModel)]="model.country.code" name="Country" index="0" (ngModelChange)="setCountrycode($event)" tabIndex="4">
+                        </countrylist>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-4 no-padding-left gutter-padd">
+                        <statelist [(ngModel)]="model.state.code" name="State" index="0" (ngModelChange)="setStatecode($event)" tabIndex="4">
+                        </statelist>
+                    </div>
+
+
+
+                    <!--                   <div class="form-group">
+                        <div class="col-xs-4 col-md-6">
+                            <div class="form-group mat-input-element ng-untouched ng-pristine ng-valid">
+                                <md-select placeholder="State" [(ngModel)]="myState" floatPlaceholder="never">
+                                    <md-option *ngFor="let state of states" [value]="state.code">{{ state.name }}</md-option>
+                                </md-select>
+                            </div>
+                        </div>
+                    </div>  
+ -->
+
+
+
+
+
+                    <div class="col-xs-12 col-sm-6 col-md-4 no-padding-left gutter-padd">
+                        <genie-input [(ngModel)]="model.cityCode" placeholder="City Code" id="citycode" displayName="citycode" name="citycode" [mandatory]="true"
+                            tabIndex="2">
+                        </genie-input>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-4 no-padding-left gutter-padd">
+                        <genie-input [(ngModel)]="model.cityName" placeholder="City Name" id="cityname" displayName="cityname" name="cityname" [mandatory]="true"
+                            tabIndex="2">
+                        </genie-input>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-4 no-padding-left gutter-padd">
+                        <genie-input [(ngModel)]="model.otherSystemCode" placeholder="Other System Code" id="othersystemcode" displayName="othersystemcode"
+                            name="othersystemcode" [mandatory]="true" tabIndex="2">
+                        </genie-input>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-4 no-padding-left">
+                        <label for="active">{{ (model.active == true) ? 'Active' : 'InActive' }}</label>
+                        <span><md-slide-toggle id="active" [(ngModel)]="model.active" id="configActive" name="active"></md-slide-toggle></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+</form>
